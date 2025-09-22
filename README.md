@@ -24,7 +24,8 @@
 
 ### 🔧 **Development Tools**
 • **[Configuration Files](config/)** — Environment and build settings  
-• **[Deployment Scripts](tools/)** — Launch and utility scripts  
+• **[Deployment Scripts](scripts/)** — Launch and production scripts  
+• **[Development Tools](tools/)** — Utilities and helper scripts
 • **[CI Status](https://github.com/kevanbtc/jinbi-144a-bond-tokenization/actions/workflows/ci.yml)** — Automated testing  
 • **[Latest Release](https://github.com/kevanbtc/jinbi-144a-bond-tokenization/releases)** — Version history  
 
@@ -160,7 +161,7 @@ cp config/.env.example .env
 ### Deployment Verification
 ```powershell
 # Run complete verification suite
-.\tools\LAUNCH_SEQUENCE.ps1
+.\scripts\LAUNCH_SEQUENCE.ps1
 
 # Quick contract verification
 cast call 0xA715acA24f83b08B786911c4d2fB194132D138D2 "name()(string)" --rpc-url https://polygon-rpc.com
@@ -206,7 +207,8 @@ cast call 0xA715acA24f83b08B786911c4d2fB194132D138D2 "totalSupply()(uint256)" --
 | Resource | Purpose | Location |
 |----------|---------|----------|
 | **[Configuration](config/)** | Environment files | `/config/` |
-| **[Tools & Scripts](tools/)** | Deployment utilities | `/tools/` |
+| **[Deployment Scripts](scripts/)** | Production deployment | `/scripts/` |
+| **[Development Tools](tools/)** | Utilities & helpers | `/tools/` |
 | **[Security Policies](.github/SECURITY.md)** | Vulnerability reporting | `/.github/` |
 
 ## 12. Disclaimers
