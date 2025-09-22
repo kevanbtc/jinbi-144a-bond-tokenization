@@ -36,7 +36,7 @@ contract DeployPolygon is Script {
         console.log("Deployer MATIC balance:", deployer.balance / 1e18, "MATIC");
 
         require(block.chainid == 137, "MUST_BE_POLYGON_MAINNET");
-        require(deployer.balance >= 50 ether, "INSUFFICIENT_MATIC_FOR_DEPLOYMENT");
+        require(deployer.balance >= 10 ether, "INSUFFICIENT_MATIC_FOR_DEPLOYMENT");
 
         vm.startBroadcast(deployerPrivateKey);
 
@@ -120,7 +120,7 @@ contract DeployPolygon is Script {
         console.log("\n=== POLYGON DEPLOYMENT COMPLETE ===");
         console.log("Network: Polygon Mainnet (Chain ID: 137)");
         console.log("USDC Address:", USDC_POLYGON);
-        console.log("Gas Used: ~", (50 ether - deployer.balance) / 1e18, "MATIC");
+        console.log("Deployer balance after: ", deployer.balance / 1e18, "MATIC");
 
         console.log("\n=== CONTRACT ADDRESSES ===");
         console.log("AttestationRegistry   :", address(attestationRegistry));
@@ -141,21 +141,7 @@ contract DeployPolygon is Script {
         console.log("4. Test primary allocation system");
         console.log("5. Configure OTC market integration");
 
-        // Save addresses to file for future use
-        string memory addresses = string(abi.encodePacked(
-            "ATTESTATION_REGISTRY=", vm.toString(address(attestationRegistry)), "\n",
-            "COMPLIANCE_REGISTRY=", vm.toString(address(complianceRegistry)), "\n",
-            "COMPLIANCE_ORACLE=", vm.toString(address(complianceOracle)), "\n",
-            "VAULT_PROOF_NFT=", vm.toString(address(vaultProofNFT)), "\n",
-            "COMPLIANT_SECURITY_TOKEN=", vm.toString(address(securityToken)), "\n",
-            "CORPORATE_ACTIONS=", vm.toString(address(corporateActions)), "\n",
-            "DVP_SETTLEMENT=", vm.toString(address(dvpSettlement)), "\n",
-            "CHAINLINK_PRICE_ROUTER=", vm.toString(address(priceRouter)), "\n",
-            "CHAINLINK_PROOF_ADAPTER=", vm.toString(address(proofAdapter)), "\n",
-            "TRANSFER_AGENT_BRIDGE=", vm.toString(address(taBridge)), "\n"
-        ));
-
-        vm.writeFile(".env.deployed", addresses);
-        console.log("\n[OK] Contract addresses saved to .env.deployed");
+        // Contract addresses logged above for manual .env.deployed creation
+        console.log("\n[OK] All contracts deployed successfully!");
     }
 }
