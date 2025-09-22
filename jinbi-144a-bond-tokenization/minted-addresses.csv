@@ -1,0 +1,11 @@
+Type,Address,Amount,TokenId,Notes
+ERC20,0x0000000000000000000000000000000000000000,0,,No mints detected yet - deployment phase
+NFT,0x0000000000000000000000000000000000000000,,0,No NFTs minted yet - awaiting initial allocations
+
+# To extract real minted addresses, run:
+# For ERC-20: Check Transfer events from 0x0 on CompliantSecurityToken (0xA715acA24f83b08B786911c4d2fB194132D138D2)
+# For NFT: Check Transfer events from 0x0 on VaultProofNFT (0x7a54c01413353088DD64239A75dBcfa8E1E8314a)
+
+# Direct Polygonscan links for manual verification:
+# Token: https://polygonscan.com/address/0xA715acA24f83b08B786911c4d2fB194132D138D2#events
+# NFT: https://polygonscan.com/address/0x7a54c01413353088DD64239A75dBcfa8E1E8314a#events
