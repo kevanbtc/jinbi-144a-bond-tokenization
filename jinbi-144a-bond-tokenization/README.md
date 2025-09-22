@@ -1,4 +1,4 @@
-# JINBI 144A/Reg S Bond Tokenization
+# International Agency $5B Series B Bond Tokenization
 
 Institution-grade tokenized bond system with full regulatory compliance for 144A and Regulation S offerings.
 

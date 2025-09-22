@@ -1,5 +1,5 @@
 {
-  "name": "JINBI 144A/Reg S Bond System",
+  "name": "International Agency $5B Series B Bond Tokenization",
   "network": "Polygon Mainnet (137)",
   "version": "1.0.0",
   "deploymentDate": "2024-09-21T15:42:00Z",
@@ -53,7 +53,7 @@
       "category": "Core Token",
       "tokenDetails": {
         "name": "JINBI Gold Bond 144A/RegS",
-        "symbol": "JINBI",
+                  "symbol": "INTL-5B-BOND",
         "decimals": 18,
         "partitions": ["/144A", "/RegS"]
       }
@@ -128,7 +128,7 @@
     "verification": "In Progress"
   },
   "quickLinks": {
-    "github": "https://github.com/kevanbtc/jinbi-144a-bond-tokenization",
+    "github": "https://github.com/kevanbtc/international-agency-5b-bond-tokenization",
     "mainToken": "https://polygonscan.com/token/0xA715acA24f83b08B786911c4d2fB194132D138D2",
     "dvpSettlement": "https://polygonscan.com/address/0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D",
     "priceRouter": "https://polygonscan.com/address/0xB3940e869Def6C07191056659889018Ebac10cB3",

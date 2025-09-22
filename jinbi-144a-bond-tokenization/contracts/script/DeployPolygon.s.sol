@@ -1,7 +1,13 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.24;
 
-import "forge-std/Script.sol";
+i          CompliantSecurityToken securityToken = new CompliantSecurityToken(
+            "International Agency $5B Series B 144A Bond",
+            "INTL-5B-BOND",
+            address(complianceOracle),
+            "US87225HAB42", // 144A ISIN
+            "87255H AB4",   // 144A CUSIP
+            "BSP9000TAA83", // Reg S ISINforge-std/Script.sol";
 import "../src/AttestationRegistry.sol";
 import "../src/ComplianceRegistry.sol";
 import "../src/ComplianceOracle.sol";
@@ -15,7 +21,7 @@ import "../src/TransferAgentBridge.sol";
 
 /**
  * @title DeployPolygon
- * @dev Polygon-optimized deployment script for JINBI 144A/Reg S tokenization system
+ * @dev Polygon-optimized deployment script for International Agency $5B Series B bond tokenization system
  */
 contract DeployPolygon is Script {
     // Polygon USDC (native USDC.e)
@@ -30,7 +36,7 @@ contract DeployPolygon is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         address deployer = vm.addr(deployerPrivateKey);
 
-        console.log("=== JINBI POLYGON DEPLOYMENT ===");
+        console.log("=== INTERNATIONAL AGENCY $5B BOND POLYGON DEPLOYMENT ===");
         console.log("Chain ID:", block.chainid);
         console.log("Deployer:", deployer);
         console.log("Deployer MATIC balance:", deployer.balance / 1e18, "MATIC");
