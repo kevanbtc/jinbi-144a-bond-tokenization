@@ -298,3 +298,5 @@ slither contracts/src/
 ---
 
 *Built for institutional bond tokenization with enterprise-grade security, compliance, and operability. Production-ready for the $5B JINBI International Agency Series B offering.*
+
+<!-- GitHub README refresh test -->
