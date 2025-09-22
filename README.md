@@ -16,6 +16,8 @@
 
 **Institutional, compliant, production-ready infrastructure** for a secured medium-term note (5%, due 2030) offered under **Rule 144A** with **Reg S** distribution, settled in **USDC** via **DvP**, with **compliance-gated transfers**, **corporate actions**, **Chainlink** price references, and **on-chain audit attestations**.
 
+> **Branch protection**: master requires 2 approvals, CODEOWNERS review, and passing checks (`security-audit`, `dependency-check`, `deployment-validation`). Force-push & deletions disabled. Admins included.
+
 **Quick Links:** • **Data Room:** [`/data-room/README.md`](data-room/README.md) • **Investor Ops (5-min DvP):** [`INVESTOR_OPS_SHEET.md`](INVESTOR_OPS_SHEET.md) • **Audit Report:** [`AUDIT_REPORT.md`](AUDIT_REPORT.md) • **Readiness Checklist:** [`PRODUCTION_READINESS_CHECKLIST.md`](PRODUCTION_READINESS_CHECKLIST.md) • **CI Status:** [Actions → CI](https://github.com/kevanbtc/jinbi-144a-bond-tokenization/actions/workflows/ci.yml) • **Latest Release:** [Releases](https://github.com/kevanbtc/jinbi-144a-bond-tokenization/releases)
 
 ---
