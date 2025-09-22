@@ -9,9 +9,10 @@
 ![CI Gates](https://img.shields.io/badge/CI-tests%20%2B%20slither%20gates-brightgreen)
 ![License](https://img.shields.io/badge/license-Commercial-lightgrey)
 ![Branch Protection](https://img.shields.io/badge/branch--protection-enforced-success)
-[![Token Contract](https://img.shields.io/badge/token-contract-8247e5)](https://polygonscan.com/address/0xA715acA24f83b08B786911c4d2fB194132D138D2)
-[![DvP Engine](https://img.shields.io/badge/dvp-engine-8247e5)](https://polygonscan.com/address/0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D)
-[![Compliance](https://img.shields.io/badge/compliance-oracle-blue)](https://polygonscan.com/address/0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3)
+![Uptime](https://img.shields.io/badge/status-live-success)
+[![Token: INTL-5B-BOND](https://img.shields.io/badge/token-0xA715…D138D2-8247e5)](https://polygonscan.com/address/0xA715acA24f83b08B786911c4d2fB194132D138D2)
+[![DvP Engine](https://img.shields.io/badge/dvp-0x0b6e…c9A5D-8247e5)](https://polygonscan.com/address/0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D)
+[![Compliance Oracle](https://img.shields.io/badge/oracle-0x9A26…a3c3-8247e5)](https://polygonscan.com/address/0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3)
 
 **Institutional, compliant, production-ready infrastructure** for a secured medium-term note (5%, due 2030) offered under **Rule 144A** with **Reg S** distribution, settled in **USDC** via **DvP**, with **compliance-gated transfers**, **corporate actions**, **Chainlink** price references, and **on-chain audit attestations**.
 
@@ -85,8 +86,10 @@ curl -s "https://api.polygonscan.com/api?module=contract&action=getabi&address=0
 ### On-Chain Receipts (fill once available)
 - **Audit Attestation TX:** [`0x…`](https://polygonscan.com/tx/0x…)
 - **Readiness Attestation TX:** [`0x…`](https://polygonscan.com/tx/0x…)
+- **Data Room Attestation TX:** [`0x…`](https://polygonscan.com/tx/0x…)
 - **Audit Report CID:** [`ipfs://…`](https://ipfs.io/ipfs/…)
 - **Readiness Checklist CID:** [`ipfs://…`](https://ipfs.io/ipfs/…)
+- **Data Room CID:** [`ipfs://…`](https://ipfs.io/ipfs/…)
 
 ---
 
@@ -141,7 +144,12 @@ curl -s "https://api.polygonscan.com/api?module=contract&action=getabi&address=0
 4. **Atomic DvP:** USDC received ⇒ tokens delivered; else revert
 5. **Record** event/receipt (optionally via **AttestationRegistry**)
 
-All steps are **transactional** with full revert on mismatch.
+## Investor Ops
+
+**Eligibility:** Provide wallet for QIB/Reg S attestation → receive partition.  
+**Settlement:** Send USDC to DvP module; tokens delivered atomically on receipt.
+
+**Request Allocation:** [📧 Contact Settlements](mailto:settlements@jinbi.com?subject=144A%20Bond%20Allocation%20Request&body=Please%20provide%20the%20following%20information%3A%0A%0A- Wallet address%3A%0A- Investment amount (USDC)%3A%0A- Eligibility type (144A QIB / Reg S)%3A%0A- Contact details%3A%0A%0AWe will process your attestation and provide settlement instructions.)
 
 ---
 
@@ -259,24 +267,24 @@ For security disclosures, see **SECURITY.md**.
 ## 🏛️ Institutional Contacts
 
 **Issuer Operations**  
-📧 operations@jinbi.com  
+📧 [operations@jinbi.com](mailto:operations@jinbi.com)  
 📞 +1 (212) 555-0123  
 🌐 [www.jinbi.com](https://jinbi.com)  
 
-**Transfer Agent**  
-📧 settlements@jinbi.com  
+**Transfer Agent & Settlements**  
+📧 [settlements@jinbi.com](mailto:settlements@jinbi.com)  
 📞 +1 (212) 555-0124  
 
 **Compliance & Legal**  
-📧 legal@jinbi.com  
+📧 [legal@jinbi.com](mailto:legal@jinbi.com)  
 📞 +1 (212) 555-0125  
 
-**Emergency Support** (24/7)  
+**Emergency Support (24/7)**  
 📞 +1 (212) 555-0199  
-📧 emergency@jinbi.com  
+📧 [emergency@jinbi.com](mailto:emergency@jinbi.com)  
 
 **Security Disclosures**  
-📧 security@jinbi.com  
+📧 [security@jinbi.com](mailto:security@jinbi.com)  
 🔒 [Security Policy](SECURITY.md)  
 
 ---

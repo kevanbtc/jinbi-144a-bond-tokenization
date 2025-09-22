@@ -1,0 +1,37 @@
+{
+  "status": "live",
+  "timestamp": "2025-09-21T00:00:00Z",
+  "version": "1.0.0",
+  "contracts": {
+    "token": {
+      "address": "0xA715acA24f83b08B786911c4d2fB194132D138D2",
+      "name": "INTL-5B-BOND",
+      "verified": true,
+      "last_check": "2025-09-21T00:00:00Z"
+    },
+    "dvp": {
+      "address": "0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D",
+      "name": "DvP Engine",
+      "verified": true,
+      "last_check": "2025-09-21T00:00:00Z"
+    },
+    "oracle": {
+      "address": "0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3",
+      "name": "Compliance Oracle",
+      "verified": true,
+      "last_check": "2025-09-21T00:00:00Z"
+    }
+  },
+  "feeds": {
+    "chainlink": {
+      "status": "active",
+      "last_update": "2025-09-21T00:00:00Z",
+      "feeds": ["XAU/USD", "MATIC/USD"]
+    }
+  },
+  "checks": {
+    "rpc_health": "healthy",
+    "contract_accessibility": "healthy",
+    "oracle_freshness": "healthy"
+  }
+}

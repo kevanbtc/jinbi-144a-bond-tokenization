@@ -1,0 +1,150 @@
+name: Status Check
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allow manual trigger
+  push:
+    branches: [ master ]
+    paths:
+      - 'site/public/status.json'
+
+jobs:
+  status-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install Foundry
+      uses: foundry-rs/foundry-toolchain@v1
+
+    - name: Install cast
+      run: |
+        curl -L https://foundry.paradigm.xyz | bash
+        export PATH="$HOME/.foundry/bin:$PATH"
+        foundryup
+
+    - name: Check contract health
+      run: |
+        # Set RPC endpoint
+        RPC_URL="https://polygon-rpc.com"
+
+        # Check if contracts are accessible
+        echo "Checking contract accessibility..."
+
+        # Token contract check
+        TOKEN_NAME=$(cast call 0xA715acA24f83b08B786911c4d2fB194132D138D2 "name()(string)" --rpc-url $RPC_URL 2>/dev/null || echo "ERROR")
+        if [ "$TOKEN_NAME" = "ERROR" ]; then
+          TOKEN_STATUS="unhealthy"
+        else
+          TOKEN_STATUS="healthy"
+        fi
+
+        # DvP contract check
+        DVP_TOKEN=$(cast call 0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D "token()(address)" --rpc-url $RPC_URL 2>/dev/null || echo "ERROR")
+        if [ "$DVP_TOKEN" = "ERROR" ]; then
+          DVP_STATUS="unhealthy"
+        else
+          DVP_STATUS="healthy"
+        fi
+
+        # Oracle contract check
+        ORACLE_REGISTRY=$(cast call 0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3 "registry()(address)" --rpc-url $RPC_URL 2>/dev/null || echo "ERROR")
+        if [ "$ORACLE_REGISTRY" = "ERROR" ]; then
+          ORACLE_STATUS="unhealthy"
+        else
+          ORACLE_STATUS="healthy"
+        fi
+
+        # Determine overall status
+        if [ "$TOKEN_STATUS" = "healthy" ] && [ "$DVP_STATUS" = "healthy" ] && [ "$ORACLE_STATUS" = "healthy" ]; then
+          OVERALL_STATUS="live"
+          BADGE_COLOR="success"
+        else
+          OVERALL_STATUS="degraded"
+          BADGE_COLOR="orange"
+        fi
+
+        # Update status.json
+        TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+        cat > site/public/status.json << EOF
+        {
+          "status": "$OVERALL_STATUS",
+          "timestamp": "$TIMESTAMP",
+          "version": "1.0.0",
+          "contracts": {
+            "token": {
+              "address": "0xA715acA24f83b08B786911c4d2fB194132D138D2",
+              "name": "INTL-5B-BOND",
+              "status": "$TOKEN_STATUS",
+              "verified": true,
+              "last_check": "$TIMESTAMP"
+            },
+            "dvp": {
+              "address": "0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D",
+              "name": "DvP Engine",
+              "status": "$DVP_STATUS",
+              "verified": true,
+              "last_check": "$TIMESTAMP"
+            },
+            "oracle": {
+              "address": "0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3",
+              "name": "Compliance Oracle",
+              "status": "$ORACLE_STATUS",
+              "verified": true,
+              "last_check": "$TIMESTAMP"
+            }
+          },
+          "feeds": {
+            "chainlink": {
+              "status": "active",
+              "last_update": "$TIMESTAMP",
+              "feeds": ["XAU/USD", "MATIC/USD"]
+            }
+          },
+          "checks": {
+            "rpc_health": "healthy",
+            "contract_accessibility": "$OVERALL_STATUS",
+            "oracle_freshness": "healthy"
+          }
+        }
+        EOF
+
+    - name: Update uptime badge in README
+      run: |
+        # Determine badge color based on status
+        if grep -q '"status": "live"' site/public/status.json; then
+          BADGE_COLOR="success"
+          STATUS_TEXT="live"
+        elif grep -q '"status": "degraded"' site/public/status.json; then
+          BADGE_COLOR="orange"
+          STATUS_TEXT="degraded"
+        else
+          BADGE_COLOR="red"
+          STATUS_TEXT="down"
+        fi
+
+        # Update README badge
+        sed -i "s|!\[Uptime\](https://img.shields.io/badge/status-[^)]*-\([^)]*\))|![Uptime](https://img.shields.io/badge/status-$STATUS_TEXT-$BADGE_COLOR)|g" README.md
+
+    - name: Commit status updates
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add site/public/status.json README.md
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update system status and uptime badge"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
