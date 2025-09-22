@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JINBI Bond Tokenization - Institutional Grade Securities</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .pulse-gold { animation: pulse-gold 2s infinite; }
+        @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 50% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-coins text-yellow-500 text-2xl mr-3"></i>
+                    <span class="text-xl font-bold text-gray-800">JINBI Bond Tokenization</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-gray-600 hover:text-blue-600">Overview</a>
+                    <a href="#contracts" class="text-gray-600 hover:text-blue-600">Contracts</a>
+                    <a href="#documentation" class="text-gray-600 hover:text-blue-600">Documentation</a>
+                    <a href="#investors" class="text-gray-600 hover:text-blue-600">For Investors</a>
+                </div>
+                <a href="https://github.com/kevanbtc/jinbi-144a-bond-tokenization" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                    <i class="fab fa-github mr-2"></i>GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="pulse-gold inline-block p-4 rounded-full bg-yellow-500 mb-6">
+                <i class="fas fa-university text-4xl text-white"></i>
+            </div>
+            <h1 class="text-5xl font-bold mb-6">JINBI 144A/Reg S Gold Bond</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Institutional-grade tokenized gold bond with regulatory compliance, deployed on Polygon mainnet</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-green-500 text-white px-4 py-2 rounded-full">✅ Deployed</span>
+                <span class="bg-blue-500 text-white px-4 py-2 rounded-full">🔗 Polygon Mainnet</span>
+                <span class="bg-yellow-500 text-white px-4 py-2 rounded-full">🏦 QIB Compliant</span>
+                <span class="bg-purple-500 text-white px-4 py-2 rounded-full">🌍 Reg S Compliant</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="card-hover bg-gray-50 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">10</div>
+                    <div class="text-gray-600">Smart Contracts</div>
+                </div>
+                <div class="card-hover bg-gray-50 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-green-600 mb-2">5%</div>
+                    <div class="text-gray-600">Annual Coupon</div>
+                </div>
+                <div class="card-hover bg-gray-50 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">2030</div>
+                    <div class="text-gray-600">Maturity Year</div>
+                </div>
+                <div class="card-hover bg-gray-50 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-yellow-600 mb-2">USDC</div>
+                    <div class="text-gray-600">Settlement Currency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">System Overview</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Complete institutional bond tokenization platform with regulatory compliance built into smart contracts</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-blue-500 text-white p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Regulatory Compliance</h3>
+                    <p class="text-gray-600">Built-in 144A QIB and Regulation S compliance with automated KYC/AML verification and sanctions screening</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-green-500 text-white p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-handshake text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">DvP Settlement</h3>
+                    <p class="text-gray-600">Delivery vs Payment settlement in USDC with atomic transactions ensuring perfect settlement</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-yellow-500 text-white p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-link text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Chainlink Integration</h3>
+                    <p class="text-gray-600">Real-time XAU/USD and USDC/USD price feeds for transparent and accurate bond valuation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contract Addresses -->
+    <section id="contracts" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Deployed Contracts</h2>
+                <p class="text-xl text-gray-600">All contracts verified on Polygonscan and operational</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="font-bold text-lg mb-2">🪙 CompliantSecurityToken (JINBI)</h3>
+                    <p class="text-sm text-gray-600 mb-2">Main tokenized bond with partition support</p>
+                    <div class="font-mono text-sm bg-white p-2 rounded">0xA715acA24f83b08B786911c4d2fB194132D138D2</div>
+                    <a href="https://polygonscan.com/address/0xA715acA24f83b08B786911c4d2fB194132D138D2" class="text-blue-600 text-sm hover:underline">View on Polygonscan →</a>
+                </div>
+                <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
+                    <h3 class="font-bold text-lg mb-2">💱 DvP Settlement</h3>
+                    <p class="text-sm text-gray-600 mb-2">Primary issuance and USDC settlement</p>
+                    <div class="font-mono text-sm bg-white p-2 rounded">0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D</div>
+                    <a href="https://polygonscan.com/address/0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D" class="text-green-600 text-sm hover:underline">View on Polygonscan →</a>
+                </div>
+                <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
+                    <h3 class="font-bold text-lg mb-2">🔍 Compliance Oracle</h3>
+                    <p class="text-sm text-gray-600 mb-2">Real-time transfer compliance validation</p>
+                    <div class="font-mono text-sm bg-white p-2 rounded">0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3</div>
+                    <a href="https://polygonscan.com/address/0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3" class="text-purple-600 text-sm hover:underline">View on Polygonscan →</a>
+                </div>
+                <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-lg border-l-4 border-yellow-500">
+                    <h3 class="font-bold text-lg mb-2">📊 Chainlink Price Router</h3>
+                    <p class="text-sm text-gray-600 mb-2">Decentralized price feeds</p>
+                    <div class="font-mono text-sm bg-white p-2 rounded">0xB3940e869Def6C07191056659889018Ebac10cB3</div>
+                    <a href="https://polygonscan.com/address/0xB3940e869Def6C07191056659889018Ebac10cB3" class="text-yellow-600 text-sm hover:underline">View on Polygonscan →</a>
+                </div>
+                <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 p-6 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="font-bold text-lg mb-2">📋 Compliance Registry</h3>
+                    <p class="text-sm text-gray-600 mb-2">Investor eligibility and KYC tracking</p>
+                    <div class="font-mono text-sm bg-white p-2 rounded">0x4FDF91216009835684233dc69da697BD9FF19F32</div>
+                    <a href="https://polygonscan.com/address/0x4FDF91216009835684233dc69da697BD9FF19F32" class="text-indigo-600 text-sm hover:underline">View on Polygonscan →</a>
+                </div>
+                <div class="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-lg border-l-4 border-red-500">
+                    <h3 class="font-bold text-lg mb-2">💰 Corporate Actions</h3>
+                    <p class="text-sm text-gray-600 mb-2">Automated coupon and principal payments</p>
+                    <div class="font-mono text-sm bg-white p-2 rounded">0x6651995eB8Bb86a551f7951DFc8dDa5070251768</div>
+                    <a href="https://polygonscan.com/address/0x6651995eB8Bb86a551f7951DFc8dDa5070251768" class="text-red-600 text-sm hover:underline">View on Polygonscan →</a>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="https://github.com/kevanbtc/jinbi-144a-bond-tokenization/blob/master/jinbi-144a-bond-tokenization/docs/CONTRACT_REGISTRY.md" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+                    View Complete Contract Registry
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="documentation" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Documentation & IPFS</h2>
+                <p class="text-xl text-gray-600">Complete documentation stored on IPFS for immutable access</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-blue-500 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Contract Registry</h3>
+                    <p class="text-gray-600 text-sm mb-4">Complete registry of all deployed contracts with addresses and purposes</p>
+                    <a href="https://ipfs.io/ipfs/Qmabg5nDj7C7AckXV3sgK8uZu7ogjrihzHfo7YWxFxPS6j" class="text-blue-600 text-sm hover:underline">View on IPFS →</a>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-green-500 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Investor Onboarding</h3>
+                    <p class="text-gray-600 text-sm mb-4">Complete guide for QIB and non-US institutional investors</p>
+                    <a href="https://ipfs.io/ipfs/QmNYHfC5q2GTJuuGroTmV9XPBaczgc9zR3N6nqo6XMTUJx" class="text-green-600 text-sm hover:underline">View on IPFS →</a>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-purple-500 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Technical Specifications</h3>
+                    <p class="text-gray-600 text-sm mb-4">Detailed technical architecture and smart contract specifications</p>
+                    <a href="https://ipfs.io/ipfs/QmVDUvaHieEFa5jmDexg2pZi3tUf6u1ThuYgKmMRphgMGz" class="text-purple-600 text-sm hover:underline">View on IPFS →</a>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-yellow-500 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Legal Checklist</h3>
+                    <p class="text-gray-600 text-sm mb-4">Compliance checklist for 144A and Regulation S requirements</p>
+                    <a href="https://ipfs.io/ipfs/QmTNXiyyZaRMjgHEDqD8LFN65zgDL8YFnU194a3wNmR97w" class="text-yellow-600 text-sm hover:underline">View on IPFS →</a>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-red-500 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Operations Runbook</h3>
+                    <p class="text-gray-600 text-sm mb-4">Daily operations and management procedures for the JINBI system</p>
+                    <a href="https://ipfs.io/ipfs/QmdhhRP9FUkGpCNo9co19ZQDx1qPaai2HGhbfm88dL4EUr" class="text-red-600 text-sm hover:underline">View on IPFS →</a>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-indigo-500 text-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Deployment Summary</h3>
+                    <p class="text-gray-600 text-sm mb-4">Complete deployment summary with all contract addresses and configuration</p>
+                    <a href="https://ipfs.io/ipfs/QmSQbu1WjJE7FniPe6GVbdvbwripixKDvE4DgxtiMzjFBq" class="text-indigo-600 text-sm hover:underline">View on IPFS →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Investors Section -->
+    <section id="investors" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">For Institutional Investors</h2>
+                <p class="text-xl text-gray-600">Everything you need to evaluate and invest in JINBI bonds</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">📊 Investment Details</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="font-semibold">Security Type:</span>
+                            <span>Gold-backed Medium Term Note</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="font-semibold">Annual Coupon:</span>
+                            <span>5% (paid quarterly)</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="font-semibold">Maturity:</span>
+                            <span>2030</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="font-semibold">Settlement Currency:</span>
+                            <span>USDC (Polygon)</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="font-semibold">Minimum Investment:</span>
+                            <span>$100,000 USD</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="font-semibold">144A ISIN:</span>
+                            <span class="font-mono">US87225HAB42</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span class="font-semibold">Reg S ISIN:</span>
+                            <span class="font-mono">BSP9000TAA83</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">🏦 Eligible Investors</h3>
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Rule 144A Tranche</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>✓ Qualified Institutional Buyers (QIBs)</li>
+                                <li>✓ Enhanced KYC/AML verification</li>
+                                <li>✓ OFAC sanctions clearance</li>
+                                <li>✓ Institutional custody arrangements</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Regulation S Tranche</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>✓ Non-U.S. institutional investors</li>
+                                <li>✓ 40-day distribution compliance lockup</li>
+                                <li>✓ Enhanced KYC/AML verification</li>
+                                <li>✓ Local regulatory compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="mailto:investors@jinbi.com" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 mr-4">
+                    Contact Investor Relations
+                </a>
+                <a href="https://ipfs.io/ipfs/QmNYHfC5q2GTJuuGroTmV9XPBaczgc9zR3N6nqo6XMTUJx" class="bg-gray-600 text-white px-8 py-3 rounded-lg hover:bg-gray-700">
+                    Download Onboarding Guide
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">JINBI Bond Tokenization</h3>
+                    <p class="text-gray-400 text-sm">Institutional-grade tokenized securities with built-in regulatory compliance.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://github.com/kevanbtc/jinbi-144a-bond-tokenization" class="text-gray-400 hover:text-white">GitHub Repository</a></li>
+                        <li><a href="https://polygonscan.com/address/0xA715acA24f83b08B786911c4d2fB194132D138D2" class="text-gray-400 hover:text-white">Token Contract</a></li>
+                        <li><a href="https://ipfs.io/ipfs/QmSQbu1WjJE7FniPe6GVbdvbwripixKDvE4DgxtiMzjFBq" class="text-gray-400 hover:text-white">Deployment Summary</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Documentation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://ipfs.io/ipfs/QmVDUvaHieEFa5jmDexg2pZi3tUf6u1ThuYgKmMRphgMGz" class="text-gray-400 hover:text-white">Technical Specs</a></li>
+                        <li><a href="https://ipfs.io/ipfs/QmTNXiyyZaRMjgHEDqD8LFN65zgDL8YFnU194a3wNmR97w" class="text-gray-400 hover:text-white">Legal Checklist</a></li>
+                        <li><a href="https://ipfs.io/ipfs/QmdhhRP9FUkGpCNo9co19ZQDx1qPaai2HGhbfm88dL4EUr" class="text-gray-400 hover:text-white">Operations Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="text-gray-400">investors@jinbi.com</li>
+                        <li class="text-gray-400">support@jinbi.com</li>
+                        <li class="text-gray-400">compliance@jinbi.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>© 2024 JINBI Bond Tokenization. For qualified institutional buyers and non-U.S. persons per 144A/Reg S.</p>
+                <p class="mt-2">🤖 Generated with <a href="https://claude.ai/code" class="text-blue-400 hover:underline">Claude Code</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
