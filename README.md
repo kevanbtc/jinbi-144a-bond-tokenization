@@ -50,17 +50,17 @@ This repository contains the **smart contracts**, **runbooks**, and **automation
 
 | Contract                | Address                                      | Notes                      |
 |-------------------------|----------------------------------------------|----------------------------|
-| **CompliantSecurityToken** | `0xA715acA24f83b08B786911c4d2fB194132D138D2` | Main security token (18d)  |
-| **DvPSettlement**       | `0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D` | USDC DvP engine            |
-| **CorporateActions**    | `0x6651995eB8Bb86a551f7951DFc8dDa5070251768` | Coupons & events           |
-| **ComplianceOracle**    | `0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3` | Eligibility checks         |
-| **ComplianceRegistry**  | `0x4FDF91216009835684233dc69da697BD9FF19F32` | KYC/SDN registry           |
-| **ChainlinkPriceRouter**| `0xB3940e869Def6C07191056659889018Ebac10cB3` | Price lookups              |
-| **VaultProofNFT**       | `0x7a54c01413353088DD64239A75dBcfa8E1E8314a` | Reserve proofs             |
-| **AttestationRegistry** | `0x73C36D0F747386978d0a0cD93f1d674937e42542` | On-chain receipts          |
-| **ChainlinkProofAdapter** | `0x2b5B28D60b123C0b7cFb9C84a26559683d9edB39` | Proof integrations         |
-| **TransferAgentBridge** | `0x1AC482B0585BedA95BEee90BA623FAd876F48fE2` | Transfer agent sync        |
-| **USDC (Polygon)**      | `0x2791Bca1F2de4661ED88A30C99A7a9449Aa84174` | Settlement currency        |
+| **CompliantSecurityToken** | [`0xA715acA24f83b08B786911c4d2fB194132D138D2`](https://polygonscan.com/address/0xA715acA24f83b08B786911c4d2fB194132D138D2) | Main security token (18d)  |
+| **DvPSettlement**       | [`0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D`](https://polygonscan.com/address/0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D) | USDC DvP engine            |
+| **CorporateActions**    | [`0x6651995eB8Bb86a551f7951DFc8dDa5070251768`](https://polygonscan.com/address/0x6651995eB8Bb86a551f7951DFc8dDa5070251768) | Coupons & events           |
+| **ComplianceOracle**    | [`0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3`](https://polygonscan.com/address/0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3) | Eligibility checks         |
+| **ComplianceRegistry**  | [`0x4FDF91216009835684233dc69da697BD9FF19F32`](https://polygonscan.com/address/0x4FDF91216009835684233dc69da697BD9FF19F32) | KYC/SDN registry           |
+| **ChainlinkPriceRouter**| [`0xB3940e869Def6C07191056659889018Ebac10cB3`](https://polygonscan.com/address/0xB3940e869Def6C07191056659889018Ebac10cB3) | Price lookups              |
+| **VaultProofNFT**       | [`0x7a54c01413353088DD64239A75dBcfa8E1E8314a`](https://polygonscan.com/address/0x7a54c01413353088DD64239A75dBcfa8E1E8314a) | Reserve proofs             |
+| **AttestationRegistry** | [`0x73C36D0F747386978d0a0cD93f1d674937e42542`](https://polygonscan.com/address/0x73C36D0F747386978d0a0cD93f1d674937e42542) | On-chain receipts          |
+| **ChainlinkProofAdapter** | [`0x2b5B28D60b123C0b7cFb9C84a26559683d9edB39`](https://polygonscan.com/address/0x2b5B28D60b123C0b7cFb9C84a26559683d9edB39) | Proof integrations         |
+| **TransferAgentBridge** | [`0x1AC482B0585BedA95BEee90BA623FAd876F48fE2`](https://polygonscan.com/address/0x1AC482B0585BedA95BEee90BA623FAd876F48fE2) | Transfer agent sync        |
+| **USDC (Polygon)**      | [`0x2791Bca1F2de4661ED88A30C99A7a9449Aa84174`](https://polygonscan.com/address/0x2791Bca1F2de4661ED88A30C99A7a9449Aa84174) | Settlement currency        |
 
 ### Offering Identifiers
 - **144A**: CUSIP `87255H AB4` • ISIN `US87255HAB42`
@@ -69,10 +69,10 @@ This repository contains the **smart contracts**, **runbooks**, and **automation
 > **Consistency Check:** Ensure CUSIP/ISIN roots align. Apply **Polygonscan Name Tags** and repo/site links before investor distribution.
 
 ### On-Chain Receipts (fill once available)
-- **Audit Attestation TX:** `0x…`
-- **Readiness Attestation TX:** `0x…`
-- **Audit Report CID:** `ipfs://…`
-- **Readiness Checklist CID:** `ipfs://…`
+- **Audit Attestation TX:** [`0x…`](https://polygonscan.com/tx/0x…)
+- **Readiness Attestation TX:** [`0x…`](https://polygonscan.com/tx/0x…)
+- **Audit Report CID:** [`ipfs://…`](https://ipfs.io/ipfs/…)
+- **Readiness Checklist CID:** [`ipfs://…`](https://ipfs.io/ipfs/…)
 
 ---
 
