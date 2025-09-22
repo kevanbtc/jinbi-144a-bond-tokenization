@@ -1,0 +1,20 @@
+# Code Owners for Security Review
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners (all changes require review)
+* @kevanbtc
+
+# Security-critical contract changes
+contracts/src/*.sol @kevanbtc
+
+# Deployment and configuration changes
+contracts/script/*.sol @kevanbtc
+.github/workflows/*.yml @kevanbtc
+
+# Documentation changes (less restrictive - auto-approve)
+*.md @kevanbtc
+docs/ @kevanbtc
+
+# Scripts and tools
+scripts/ @kevanbtc
+*.ps1 @kevanbtc

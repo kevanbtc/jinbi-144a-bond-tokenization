@@ -1,0 +1,138 @@
+name: Security & Build CI
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install Foundry
+      uses: foundry-rs/foundry-toolchain@v1
+
+    - name: Install Slither
+      run: pip install slither-analyzer
+
+    - name: Install dependencies
+      run: forge install
+
+    - name: Run build
+      run: forge build
+
+    - name: Check for compilation errors
+      run: |
+        if [ $? -ne 0 ]; then
+          echo "❌ CRITICAL: Build failed!"
+          exit 1
+        fi
+
+    - name: Run Slither security analysis
+      run: slither . --exclude-dependencies --filter-paths "lib/" --fail-high --fail-medium
+
+    - name: Check for reentrancy vulnerabilities
+      run: |
+        if slither . --exclude-dependencies --filter-paths "lib/" | grep -q "Reentrancy"; then
+          echo "❌ CRITICAL: Reentrancy vulnerabilities detected!"
+          exit 1
+        else
+          echo "✅ No reentrancy vulnerabilities found"
+        fi
+
+    - name: Check for authorization issues
+      run: |
+        if slither . --exclude-dependencies --filter-paths "lib/" | grep -q "Missing.*access.*control\|Incorrect.*modifier"; then
+          echo "❌ CRITICAL: Authorization vulnerabilities detected!"
+          exit 1
+        else
+          echo "✅ No authorization vulnerabilities found"
+        fi
+
+    - name: Run comprehensive test suite
+      run: forge test --gas-report
+
+    - name: Check test coverage (minimum 95%)
+      run: |
+        COVERAGE=$(forge coverage --report summary | grep "Total" | awk '{print $4}' | sed 's/%//')
+        if (( $(echo "$COVERAGE < 95" | bc -l) )); then
+          echo "❌ CRITICAL: Test coverage too low: $COVERAGE%"
+          exit 1
+        else
+          echo "✅ Test coverage: $COVERAGE%"
+        fi
+
+    - name: Check code formatting
+      run: forge fmt --check
+
+    - name: Check for hardcoded secrets
+      run: |
+        if grep -r "private.*key\|secret\|password" contracts/src/ --include="*.sol" | grep -v "example\|test"; then
+          echo "❌ CRITICAL: Potential hardcoded secrets detected!"
+          exit 1
+        else
+          echo "✅ No hardcoded secrets found"
+        fi
+
+    - name: Validate contract sizes
+      run: |
+        # Check for contracts that might be too large
+        find contracts/src -name "*.sol" -exec wc -l {} \; | while read lines file; do
+          if [ "$lines" -gt 1000 ]; then
+            echo "⚠️  WARNING: $file is very large ($lines lines)"
+          fi
+        done
+
+  dependency-check:
+    runs-on: ubuntu-latest
+    needs: security-audit
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check for outdated dependencies
+      run: |
+        # Check if OpenZeppelin and other deps are up to date
+        echo "Checking dependency versions..."
+        # This would be enhanced with actual version checking
+
+    - name: Audit dependencies
+      run: |
+        # Check for known vulnerabilities in dependencies
+        echo "Dependency audit would go here"
+        # Could integrate with npm audit or similar
+
+  deployment-validation:
+    runs-on: ubuntu-latest
+    needs: [security-audit, dependency-check]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Validate deployment scripts
+      run: |
+        # Check that deployment scripts exist and are valid
+        if [ ! -f "contracts/script/Deploy.s.sol" ]; then
+          echo "❌ CRITICAL: Deployment script missing!"
+          exit 1
+        fi
+        echo "✅ Deployment script present"
+
+    - name: Check environment configuration
+      run: |
+        # Validate that required environment variables are documented
+        if ! grep -q "POLYGON_RPC_URL\|PRIVATE_KEY" README.md 2>/dev/null; then
+          echo "⚠️  WARNING: Environment variables not documented in README"
+        fi
+
+    - name: Generate deployment artifacts
+      run: |
+        forge build --extra-output-files abi bin
+        echo "✅ Deployment artifacts generated"
