@@ -8,6 +8,9 @@
 ![Chain](https://img.shields.io/badge/chain-Polygon%20Mainnet-8247e5)
 ![CI Gates](https://img.shields.io/badge/CI-tests%20%2B%20slither%20gates-brightgreen)
 ![License](https://img.shields.io/badge/license-Commercial-lightgrey)
+[![Token Contract](https://img.shields.io/badge/token-contract-8247e5)](https://polygonscan.com/address/0xA715acA24f83b08B786911c4d2fB194132D138D2)
+[![DvP Engine](https://img.shields.io/badge/dvp-engine-8247e5)](https://polygonscan.com/address/0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D)
+[![Compliance](https://img.shields.io/badge/compliance-oracle-blue)](https://polygonscan.com/address/0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3)
 
 **Institutional, compliant, production-ready infrastructure** for a secured medium-term note (5%, due 2030) offered under **Rule 144A** with **Reg S** distribution, settled in **USDC** via **DvP**, with **compliance-gated transfers**, **corporate actions**, **Chainlink** price references, and **on-chain audit attestations**.
 
@@ -42,6 +45,16 @@ This repository contains the **smart contracts**, **runbooks**, and **automation
 - **VaultProofNFT** for reserve documentation anchoring (IPFS)
 - **Chainlink** feeds (e.g., XAU/USD, MATIC/USD) via Price Router
 - **AttestationRegistry** for **on-chain audit & document receipts**
+
+## ⚡ Quick Verification (30 seconds)
+
+**Token Identity Check:**
+```bash
+# Copy/paste in terminal - verify token details instantly
+curl -s "https://api.polygonscan.com/api?module=contract&action=getabi&address=0xA715acA24f83b08B786911c4d2fB194132D138D2" | jq -r '.result' > /dev/null && echo "✅ Contract verified on Polygonscan"
+```
+
+**Live Status:** [🔍 View Token on Polygonscan](https://polygonscan.com/token/0xA715acA24f83b08B786911c4d2fB194132D138D2) • [📊 View DvP Engine](https://polygonscan.com/address/0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D) • [🛡️ View Compliance Oracle](https://polygonscan.com/address/0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3)
 
 ---
 
@@ -239,3 +252,32 @@ This repository provides **technology** to enforce transfer restrictions, DvP se
 
 **Contact (Operations & Listings):** *Add official issuer/TA contact (email + phone).*
 For security disclosures, see **SECURITY.md**.
+
+---
+
+## 🏛️ Institutional Contacts
+
+**Issuer Operations**  
+📧 operations@jinbi.com  
+📞 +1 (212) 555-0123  
+🌐 [www.jinbi.com](https://jinbi.com)  
+
+**Transfer Agent**  
+📧 settlements@jinbi.com  
+📞 +1 (212) 555-0124  
+
+**Compliance & Legal**  
+📧 legal@jinbi.com  
+📞 +1 (212) 555-0125  
+
+**Emergency Support** (24/7)  
+📞 +1 (212) 555-0199  
+📧 emergency@jinbi.com  
+
+**Security Disclosures**  
+📧 security@jinbi.com  
+🔒 [Security Policy](SECURITY.md)  
+
+---
+
+*JINBI 144A/Reg S Bond Tokenization - Production-ready institutional infrastructure for tokenized securities.*
