@@ -1,13 +1,7 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.24;
 
-i          CompliantSecurityToken securityToken = new CompliantSecurityToken(
-            "International Agency $5B Series B 144A Bond",
-            "INTL-5B-BOND",
-            address(complianceOracle),
-            "US87225HAB42", // 144A ISIN
-            "87255H AB4",   // 144A CUSIP
-            "BSP9000TAA83", // Reg S ISINforge-std/Script.sol";
+import "forge-std/Script.sol";
 import "../src/AttestationRegistry.sol";
 import "../src/ComplianceRegistry.sol";
 import "../src/ComplianceOracle.sol";
@@ -69,8 +63,8 @@ contract DeployPolygon is Script {
         // 5. Deploy CompliantSecurityToken
         console.log("\n5. Deploying CompliantSecurityToken...");
         CompliantSecurityToken securityToken = new CompliantSecurityToken(
-            "JINBI Gold Bond 144A/RegS",
-            "JINBI",
+            "International Agency $5B Series B 144A Bond",
+            "INTL-5B-BOND",
             address(complianceOracle),
             "US87225HAB42", // 144A ISIN
             "87225H AB4",   // 144A CUSIP
