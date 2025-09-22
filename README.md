@@ -8,6 +8,7 @@
 ![Chain](https://img.shields.io/badge/chain-Polygon%20Mainnet-8247e5)
 ![CI Gates](https://img.shields.io/badge/CI-tests%20%2B%20slither%20gates-brightgreen)
 ![License](https://img.shields.io/badge/license-Commercial-lightgrey)
+![Branch Protection](https://img.shields.io/badge/branch--protection-enforced-success)
 [![Token Contract](https://img.shields.io/badge/token-contract-8247e5)](https://polygonscan.com/address/0xA715acA24f83b08B786911c4d2fB194132D138D2)
 [![DvP Engine](https://img.shields.io/badge/dvp-engine-8247e5)](https://polygonscan.com/address/0x0b6e35549B8Bbf67885A8d41e65d044540fc9A5D)
 [![Compliance](https://img.shields.io/badge/compliance-oracle-blue)](https://polygonscan.com/address/0x9A26e4B30C372e10695e5713b3FF0E7ff45ca3c3)

@@ -4,49 +4,105 @@
 
 Your master branch is currently **unprotected**. For a production institutional system, this is a critical security risk. Follow these steps to secure your repository:
 
-### 1. Enable Branch Protection Rules
+### Fastest Path — GitHub UI (90 seconds)
 
-Go to: **Settings** → **Branches** → **Add rule**
+**Settings** → **Branches** → **"Add rule"**
 
-**Branch name pattern:** `master`
+* **Branch name pattern:** `master`
+* ✅ **Require a pull request before merging**
+  * ✅ **Require approvals:** **2**
+  * ✅ **Dismiss stale approvals**
+  * ✅ **Require review from Code Owners**
+* ✅ **Require status checks to pass before merging**
+  * Add these (match your workflow job names):
+    * `security-audit` (from CI workflow)
+  * ✅ **Require branches to be up to date**
+* ✅ **Require signed commits** (optional but recommended)
+* ✅ **Require linear history**
+* ✅ **Do not allow bypassing the above settings**
+* ✅ **Include administrators**
+* 🔒 **Restrict who can push to matching branches** → **No one** (PRs only)
+* 🚫 **Prevent force pushes**
+* 🚫 **Prevent deletions**
 
-**Protection Rules:**
-- ✅ **Require a pull request before merging**
-  - Required approvals: **2**
-  - Dismiss stale pull request approvals when new commits are pushed
-  - Require review from Code Owners
-  - Restrict who can dismiss pull request reviews
+### One-Shot via GitHub CLI
 
-- ✅ **Require status checks to pass before merging**
-  - Require branches to be up to date before merging
-  - Status checks found in the last week for this repository:
-    - `security-audit` (from CI workflow)
+```powershell
+# Authenticate first
+gh auth login
 
-- ✅ **Require conversation resolution before merging**
+# Set up branch protection
+gh api -X PUT repos/kevanbtc/jinbi-144a-bond-tokenization/branches/master/protection `
+  -H "Accept: application/vnd.github+json" `
+  -F required_pull_request_reviews.dismiss_stale_reviews=true `
+  -F required_pull_request_reviews.required_approving_review_count=2 `
+  -F required_pull_request_reviews.require_code_owner_reviews=true `
+  -F enforce_admins=true `
+  -F required_linear_history=true `
+  -F allow_force_pushes=false `
+  -F allow_deletions=false
 
-- ✅ **Include administrators**
-  - Enforce all configured restrictions above for administrators
+# Add status checks
+gh api -X PATCH repos/kevanbtc/jinbi-144a-bond-tokenization/branches/master/protection/required_status_checks `
+  -H "Accept: application/vnd.github+json" `
+  -F strict=true `
+  -F contexts='["security-audit"]'
+```
 
-- ✅ **Restrict pushes that create matching branches**
-- ✅ **Allow force pushes**: ❌ **UNCHECKED** (force pushes disabled)
-- ✅ **Allow deletions**: ❌ **UNCHECKED** (branch deletion disabled)
-
-### 2. Required Status Checks
+### Required Status Checks
 
 The following checks must pass before any merge to master:
 
-- `security-audit` - Complete security analysis (Slither + tests)
-- `build` - Foundry compilation
-- `test` - Full test suite execution
-- `lint` - Code formatting and style checks
+- `security-audit` - Complete security analysis (Slither + tests + coverage)
+- Foundry build and deployment validation
+- Contract size and security checks
 
-### 3. Code Owners Setup
+### Code Owners Setup
 
-Create `.github/CODEOWNERS` file:
+Your `.github/CODEOWNERS` file should include:
 
 ```
-# Global owners (security-critical changes)
-* @kevanbtc @security-reviewer
+# Contracts require security + protocol review
+/contracts/**            @kevanbtc @aider-chat-bot
+
+# CI, workflows, security policy
+/.github/**              @kevanbtc
+
+# Scripts used to operate production
+/scripts/**              @kevanbtc
+```
+
+### Testing Branch Protection
+
+1. **Create a test PR** to master
+2. **Verify you cannot merge** until:
+   - 2 approvals given (one must be a CODEOWNER)
+   - All required checks pass (`security-audit`)
+   - Branch is up-to-date with master
+3. **Try to push directly to master** → should fail
+
+### Additional Security Hardening
+
+**Repository Settings:**
+- **Actions** → **General** → **Require approval for external PRs**
+- **Secrets and variables** → **Actions** → **Disable** "Allow GitHub Actions to create PRs"
+- **Code security** → **Enable** Dependabot alerts & security updates
+
+**Environment Protection:**
+- Create `production` environment
+- Add Safe multisig signers as required reviewers
+- Restrict deployment branches to `master` only
+
+### Compliance Verification
+
+This configuration ensures:
+- ✅ **No direct pushes** to master (PRs only)
+- ✅ **2-person rule** for all changes
+- ✅ **Security gates** enforced before merge
+- ✅ **Audit trail** of all changes
+- ✅ **Administrator enforcement** (no bypasses)
+
+**Status:** Branch protection is **REQUIRED** for institutional production systems.
 
 # Contract changes require security review
 contracts/src/*.sol @kevanbtc @security-reviewer

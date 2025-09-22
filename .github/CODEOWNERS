@@ -4,6 +4,15 @@
 # Global owners (all changes require review)
 * @kevanbtc
 
+# Contracts require security + protocol review
+/contracts/**            @kevanbtc @aider-chat-bot
+
+# CI, workflows, security policy
+/.github/**              @kevanbtc
+
+# Scripts used to operate production
+/scripts/**              @kevanbtc
+
 # Security-critical contract changes
 contracts/src/*.sol @kevanbtc
 
